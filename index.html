@@ -317,8 +317,26 @@ details.cityNavItem>summary::-webkit-details-marker{display:none}
 .dayLink{display:block;padding:12px 14px;border-top:1px solid rgba(17,24,39,.08);text-decoration:none;color:#0b57d0;font-weight:900}
 .dayLink:active{background:#f3f4f6}
 
+
+/* v0.16.3: force light theme (ignore system dark) */
+html{ color-scheme: light; }
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#f2f2f7 !important;
+    --card:rgba(255,255,255,.92) !important;
+    --text:#111827 !important;
+    --muted:#6b7280 !important;
+    --stroke:rgba(17,24,39,.10) !important;
+  }
+  body{ background:var(--bg) !important; color:var(--text) !important; }
+  header, .card, details.day, details.cityBlock, details.cityNavItem{ background: var(--card) !important; }
+}
+
+/* v0.16.3: compact header */
+header{ padding:12px !important; }
+header h1{ margin-bottom:4px !important; }
 </style>
-</head>
+<meta content="light" name="color-scheme"/></head>
 <body>
 <header>
 <div class="app">
